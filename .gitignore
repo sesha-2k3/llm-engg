@@ -1,2 +1,5 @@
 # local reference files
 local/
+
+# OS generated files
+.DS_Store
