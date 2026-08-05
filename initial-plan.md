@@ -110,7 +110,7 @@ The original syllabus puts evaluation near the end. **Don't wait.** Start buildi
 Formal study (harnesses, LLM-as-judge, observability) lands in Phase 5, but the habit starts the moment you have two versions of anything to compare.
 
 - **AI Engineering** (Chip Huyen) Ch. 3–4 — the best treatment anywhere. Read it early even if you don't follow all of it yet.
-- EleutherAI `lm-evaluation-harness`, Hamel Husain's writing on evals.
+- EleutherAI [`lm-evaluation-harness`](https://github.com/EleutherAI/lm-evaluation-harness/), [Hamel Husain's writing on evals.](https://hamel.dev/blog/posts/evals-faq/)
 - Build your own tiny harness in Phase 3 and reuse it in every later phase.
 
 Evals are the actual moat. Anyone can call an API. The person who knows whether the output got better is the engineer.
