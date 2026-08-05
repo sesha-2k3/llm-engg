@@ -1,4 +1,4 @@
-# models & weights — never commit these
+# models & weights 
 *.gguf
 *.safetensors
 *.bin
@@ -23,7 +23,7 @@ runs/
 mlruns/
 lightning_logs/
  
-# data — commit small eval sets deliberately, not dumps
+# data 
 data/raw/
 *.parquet
  
@@ -33,3 +33,6 @@ data/raw/
 # secrets
 .env
 *.pem
+
+# refs
+local/
