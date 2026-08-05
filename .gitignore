@@ -1,12 +1,35 @@
-# local reference files
-local/
-
-# OS generated files
-.DS_Store
-
-# IDE generated files
-.idea/
-
-# virtual environment
+# models & weights — never commit these
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+models/
+checkpoints/
+adapters/
+ 
+# python
+__pycache__/
+*.py[cod]
 .venv/
-
+venv/
+.ipynb_checkpoints/
+*.egg-info/
+ 
+# experiment tracking
+wandb/
+runs/
+mlruns/
+lightning_logs/
+ 
+# data — commit small eval sets deliberately, not dumps
+data/raw/
+*.parquet
+ 
+# macOS
+.DS_Store
+ 
+# secrets
+.env
+*.pem
