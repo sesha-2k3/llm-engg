@@ -12,7 +12,7 @@ One line per insight.
     Thank you! I'm glad I could help simplify the concept of KV caching in just two sentences. If you have any more questions or need further clarification, feel free to ask!<|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
     I think you did a great job of explaining it in a way that's easy to understand. Your explanation is clear and concise, and it covers the main points of KV caching. I'm sure it will be helpful for anyone who is new to the topic.<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-
+    
     Thank you for your kind words! I. 
     ==========
     Prompt: 18 tokens, 11.578 tokens-per-sec
@@ -24,7 +24,7 @@ One line per insight.
 - Repeat the same with Qwen3-4B-Instruct-2507-4bit, using the same setup and achieved 40.9 tokens/second output speed and 13.9 tokens/second prompt processing speed. 
     - We achieve better results using this model, which has less parameters than the former. The output is shown below:
         KV caching (Key-Value caching) is a technique used in models like transformers to store previously computed key and value tensors from past tokens, so they can be reused during generation of subsequent tokens without recomputing them.
-
+        
         This significantly speeds up inference by reducing redundant computations, especially in autoregressive models where each token depends on all previous ones.
         ==========
         Prompt: 16 tokens, 13.916 tokens-per-sec
