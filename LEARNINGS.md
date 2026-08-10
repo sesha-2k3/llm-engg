@@ -45,13 +45,9 @@ One line per insight.
 
 ## Phase 1
 ### Chapter 1 in Raschka's book:
-Three main stages of Building an LLM:
-
+- Three main stages of Building an LLM:
     - Data Preparation and Architecture Definition
     - Pretraining to create a Foundational / Base model
     - Finetuning the foundational model for specific or specialized task.
-
-Finetuning is categorized into two: Instruction and Classification (self-explanatory)
-
-LLM's built primarily on transformer architecture, which consists of an encoder and a decoder. 
-Example: The encoder encodes information into vectors for a machine translation and the decoder decodes the vector and finds relevant information in another language.
+- Finetuning is categorized into two: Instruction and Classification (self-explanatory)
+- LLM's built primarily on transformer architecture, which consists of an encoder and a decoder. Example: The encoder encodes information into vectors for a machine translation and the decoder decodes the vector and finds relevant information in another language.
