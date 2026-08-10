@@ -37,9 +37,21 @@ One line per insight.
 
 - The reason that the prompt processing is dead slower than the output generation is, because the prompt was too short. The graph setup, chip kernel compilation, first touch weight paging, etc all happened for the mere token count is the reason. To measure the prefill throughput, we have to test it on long tokens. 
 
-
 ### Digress:
 - Precision for models: FP32, FP16, BF16, INT8, INT4: 4, 2, 2, 1, 0.5 bytes respectively.
 - Model size (roughly) = `size_of_precision` * params (in billions) GB (approximately, a good rule of thumb)
     - Example: A 70B model with FP16 precision will be around 140 gb in size and would need RAM higher than that.
 - BF16 vs FP16: BF16 has more exponent bits and hence can capture wide range of numbers whereas FP16 has higher mantissa bits and hence it can capture more detail. Generally, deep NN's use BF16 as it can help models handle with exploding values while training
+
+## Phase 1
+### Chapter 1 in Raschka's book:
+Three main stages of Building an LLM:
+
+    - Data Preparation and Architecture Definition
+    - Pretraining to create a Foundational / Base model
+    - Finetuning the foundational model for specific or specialized task.
+
+Finetuning is categorized into two: Instruction and Classification (self-explanatory)
+
+LLM's built primarily on transformer architecture, which consists of an encoder and a decoder. 
+Example: The encoder encodes information into vectors for a machine translation and the decoder decodes the vector and finds relevant information in another language.
