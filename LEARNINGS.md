@@ -42,3 +42,4 @@ One line per insight.
 - Precision for models: FP32, FP16, BF16, INT8, INT4: 4, 2, 2, 1, 0.5 bytes respectively.
 - Model size (roughly) = `size_of_precision` * params (in billions) GB (approximately, a good rule of thumb)
     - Example: A 70B model with FP16 precision will be around 140 gb in size and would need RAM higher than that.
+- BF16 vs FP16: BF16 has more exponent bits and hence can capture wide range of numbers whereas FP16 has higher mantissa bits and hence it can capture more detail. Generally, deep NN's use BF16 as it can help models handle with exploding values while training
