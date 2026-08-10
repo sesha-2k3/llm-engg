@@ -40,5 +40,5 @@ One line per insight.
 
 ### Digress:
 - Precision for models: FP32, FP16, BF16, INT8, INT4: 4, 2, 2, 1, 0.5 bytes respectively.
-- Model size (roughly) = `size_of_precision` * params (in billions) 
+- Model size (roughly) = `size_of_precision` * params (in billions) GB (approximately, a good rule of thumb)
     - Example: A 70B model with FP16 precision will be around 140 gb in size and would need RAM higher than that.
