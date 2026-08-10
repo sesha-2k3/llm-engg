@@ -36,3 +36,9 @@ One line per insight.
     - The reason for this is because Qwen3's eos_token and the <|im_end|> (ChatML, Chat Markup Language, introduced by OpenAI to separate user's prompts from LLM's responses.) was detected successfully, and hence the output stopped at 70 tokens. The context's correctness is due to the model's age, because Qwen3 was trained in 2025 whereas the former was 2023. Also, Qwen3 is technically tighter and stringent rather than being a "nice guy", and hence, it uses less pleasing words compared to Llama (Also, the Instruct2507 is non thinking build).This is the sole reason that Qwen beat Llama in terms of accuracy and context despite being the smaller model. (hence, model recency > model size)
 
 - The reason that the prompt processing is dead slower than the output generation is, because the prompt was too short. The graph setup, chip kernel compilation, first touch weight paging, etc all happened for the mere token count is the reason. To measure the prefill throughput, we have to test it on long tokens. 
+
+
+### Digress:
+- Precision for models: FP32, FP16, BF16, INT8, INT4: 4, 2, 2, 1, 0.5 bytes respectively.
+- Model size (roughly) = `size_of_precision` * params (in billions) 
+    - Example: A 70B model with FP16 precision will be around 140 gb in size and would need RAM higher than that.
