@@ -51,3 +51,7 @@ One line per insight.
     - Finetuning the foundational model for specific or specialized task.
 - Finetuning is categorized into two: Instruction and Classification (self-explanatory)
 - LLM's built primarily on transformer architecture, which consists of an encoder and a decoder. Example: The encoder encodes information into vectors for a machine translation and the decoder decodes the vector and finds relevant information in another language.
+- Architectures like BERT and GPT revolutionized the LLM environment. BERT works by predicting the masked word and similar tasks, whereas GPT works by predicting the next token (or word)
+- The GPT, which was built using only the decoder blocks, could also perform language translation, which it was not specifically trained for. This is known as 'emergent behaviour', as it was only trained on prediciting the next word using the previous sequence. This extended the usage of LLM's for a wider scope. 
+- When we talk about building an LLM, there are three primary stages: 1. Architecture implementation and data preprocessing (including attention mechanism and data sampling), 2. Pretraining to obtain a foundational model (loading model pretrained weigths and evaluating the foundational model), 3. Finetuning it for a specific task (may it be instrcutional or classification-based).
+- 
