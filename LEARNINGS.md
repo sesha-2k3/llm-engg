@@ -44,7 +44,7 @@ One line per insight.
 - BF16 vs FP16: BF16 has more exponent bits and hence can capture wide range of numbers whereas FP16 has higher mantissa bits and hence it can capture more detail. Generally, deep NN's use BF16 as it can help models handle with exploding values while training
 
 ## Phase 1
-### Chapter 1 in Raschka's book:
+### Chapter 1 in Build a Large Language Model (by Sebastian Raschka):
 - Three main stages of Building an LLM:
     - Data Preparation and Architecture Definition
     - Pretraining to create a Foundational / Base model
@@ -54,4 +54,10 @@ One line per insight.
 - Architectures like BERT and GPT revolutionized the LLM environment. BERT works by predicting the masked word and similar tasks, whereas GPT works by predicting the next token (or word)
 - The GPT, which was built using only the decoder blocks, could also perform language translation, which it was not specifically trained for. This is known as 'emergent behaviour', as it was only trained on prediciting the next word using the previous sequence. This extended the usage of LLM's for a wider scope. 
 - When we talk about building an LLM, there are three primary stages: 1. Architecture implementation and data preprocessing (including attention mechanism and data sampling), 2. Pretraining to obtain a foundational model (loading model pretrained weigths and evaluating the foundational model), 3. Finetuning it for a specific task (may it be instrcutional or classification-based).
+
+### Chapter 2 in Build a Large Language Model (by Sebastian Raschka):
+- Primarily focusses on the preparing the data to train a large language model.
+- The process of converting any form of data into vector representation is called 'embedding'. The core of the embeddings is to map discrete objects like texts, video, and audio into vector representation so that the model can understand and learn from it. Word Embeddings are common, but we can alse embed sentences, paragraphs and documents, which are popular choices for Retrieval (RAG), meaning a combination of generation (producing text) and retrieval (searching and retrieving from an external knowledge base) leading to more accurate generation.
+- Traditional and popular methods for embedding include Word2Vec, where the words are turned into vectors and are projected into an N dimensional space, and the words with similar meaning and context end up together.
+- As the dimensions of the embedding model increases, it can represent more complex patterns and relationships. However the amount of useful information does not necessarily increase (as it is dependant on the task) with the increase in dimension. When we use a higher dimension model, the cost of computation also increases. 
 - 
