@@ -36,3 +36,6 @@ data/raw/
 
 # refs
 local/
+
+# ide
+.vscode/
