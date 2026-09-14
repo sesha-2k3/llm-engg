@@ -84,4 +84,41 @@ One line per insight.
 - The problem pre-LLM architectures had: When translating from one language to English or other language, we need to be aware of the words that come previous or next to the word that we currently stay on (for example, when we translate from German to English, some words may come after certain words in German but the same words are in a different order in English). When we translated exact text to text, we lose grammatical correctness and accuracy. RNN's solved this problem to some extent, by having an encoder block that has, say, an entire sentence and then a decoder to convert it back to the language of your choice. The encoder updates its hidden state in each step, and the decoder converts the information from the last hidden state to complete the translation, one word at a time, and update its hidden state which is supposed to carry the information for the next word prediction. The RNN cannot access the information from earlier hidden states (cannot access previous words in a sentence once it is past them), and hence it loses context on complex sentences where dependencies span longer distances.
 - In 2014, Researchers have invented the 'Bahdanau Attention' for RNN's that is used in RNN's to capture selective hidden states in the sequence. Three years later, the modern day 'Transformers' were invented, which is the backbone of all the large language models.
 - The "self" in self-attention means the mechanism's ability to compute attention weights by relating different position in the same input sequence, and hence assessing and learning the relationships between various parts of the same input sequence. This is in contrast to traditional attention mechanism, where the focus lies on relating the input and output sequences (in sequence to sequence models).
-- In self attention mechanism, the goal is to compute a context vector for each input vector that coalases information from all input elements. The context vector can be interpreted as an enriched embedding vector,
+- In self attention mechanism, the goal is to compute a context vector for each input vector that coalases information from all input elements. The context vector can be interpreted as an enriched embedding vector. The context vector helps to represent each element by incorporating the information from all the elements of the input sequence.
+- Refer to the code in `phase-1-foundations/attention-chap3/` for the attention mechanism.
+- First step for a simplified attention mechanism is to calculate the attention scores per token with respect to all the other token (in the end, it forms the attention matrix). This involves creating a dot product of the token embedding vector with every other query vector (the same token embedding vector of all the other tokens).
+- Then we should normalize (values should sum upt 1), and apart from the code, it is generally advisable to use a softmax function for this as it deals better with extereme values, and hence better gradients during training. The softmax also ensures that all the values are positive, hence making the output interpretable as probabilities.
+- Calculate the context vector z^2, by multiplying input embed tokens x^i with the corresponding attention weights and summing the resulting vectors. The general matrix form can be represented as: 
+$$
+Z = AX
+$$
+where Z is the context matrix that has all the context vectors, and A is the attention matrix that has all the attention weight vectors, and X is the input embedding matrix. If broken down,
+$$
+A =
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix},
+\qquad
+X =
+\begin{bmatrix}
+x^{(1)} \\
+x^{(2)} \\
+\vdots \\
+x^{(n)}
+\end{bmatrix}
+$$
+$$
+Z =
+\begin{bmatrix}
+z^{(1)} \\
+z^{(2)} \\
+\vdots \\
+z^{(n)}
+\end{bmatrix}
+=
+AX
+$$
+- 
