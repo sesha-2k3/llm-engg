@@ -121,4 +121,7 @@ z^{(n)}
 =
 AX
 $$
-- 
+- The steps are: 
+    - Compute Attention scores (which are the dot products between the inputs)
+    - Compute Attention weights (nothing but normalized attention scores)
+    - Compute Context vectors (weighted sum over the input vector)
