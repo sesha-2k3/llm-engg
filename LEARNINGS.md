@@ -88,7 +88,7 @@ One line per insight.
 - Refer to the code in `phase-1-foundations/attention-chap3/` for the attention mechanism.
 - First step for a simplified attention mechanism is to calculate the attention scores per token with respect to all the other token (in the end, it forms the attention matrix). This involves creating a dot product of the token embedding vector with every other query vector (the same token embedding vector of all the other tokens).
 - Then we should normalize (values should sum upt 1), and apart from the code, it is generally advisable to use a softmax function for this as it deals better with extereme values, and hence better gradients during training. The softmax also ensures that all the values are positive, hence making the output interpretable as probabilities.
-- Calculate the context vector z^2, by multiplying input embed tokens x^i with the corresponding attention weights and summing the resulting vectors. The general matrix form can be represented as: 
+- Calculate the context vector $z^2$, by multiplying input embed tokens $x^i$ with the corresponding attention weights and summing the resulting vectors. The general matrix form can be represented as: 
 $$
 Z = AX
 $$
@@ -125,3 +125,10 @@ $$
     - Compute Attention scores (which are the dot products between the inputs)
     - Compute Attention weights (nothing but normalized attention scores)
     - Compute Context vectors (weighted sum over the input vector)
+- Now, implement the attention using weights. First we implemented the simplified form of attention using manually added values, now we will implement it using trainable parameters, weights and then will extend to casual mask and multiple heads. These trainable parameters help the model to perform better and then produce good context vectors. Refer to code.
+- We use three matrices, $W_q$, $W_k$ $W_v$ that are primarily used as trainable parameters when coding Attention mechanism. These three matrics are used to project input embedding vector into Query, Key and Value matrices respectively.
+- Weight parameters vs attention weights: Weight parameters are usually depicted using `W`, and are parameters through which a model learns. Whereas attention weights are used to determine the extent to what a context vector must focus on different parts of the input, that is, to what extent the network focusses on different parts of the input.
+- The terms Query, Key and Value: 
+    - Query: This is similar to the query that we ask a database, but for a token (or a word). The model tries to focus on the current token. This query is used to look into other tokens and decide how much attention to pay for the other token.
+    - Key: This is like a database key used for indexing an item. Every token has a key associated with it and this is used to match the Query.
+    - value: Identical to key-value pair in a DB, this is used to represent the actual content of the input items. The purpose of the value in the attention mechanism is, when the model identifies which keys (parts of the i/p) are relevant to the query (current token), it retrieves the corresponding values.
