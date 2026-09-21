@@ -140,3 +140,4 @@ $$
     - We mask out the words that comes after the current token and then apply softmax to attention scores, zero out the upper triangular matrix and then normalize the resulting matrix.
     - Information Leakage from the future tokens (because we scale the entire matrix using softmax and then zero out the upper elements) is not an issue because we renormalize the weights with respect to rows after masking. This is essentially recalculating the softmax over a smaller subset.
     - A more efficient way to implement the masked attention is that instead of zeroing out the upper elements, we can mask them with $-\infty$ and then apply softmax over the entire matrix. Creating a mask of 1's above the diagonal and then replacing them with $-\infty$ would help to achieve this effectively.
+    - Before calculating the context vector, we can apply dropout that could prevent overfitting when training LLM's. 
