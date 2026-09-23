@@ -141,3 +141,10 @@ $$
     - Information Leakage from the future tokens (because we scale the entire matrix using softmax and then zero out the upper elements) is not an issue because we renormalize the weights with respect to rows after masking. This is essentially recalculating the softmax over a smaller subset.
     - A more efficient way to implement the masked attention is that instead of zeroing out the upper elements, we can mask them with $-\infty$ and then apply softmax over the entire matrix. Creating a mask of 1's above the diagonal and then replacing them with $-\infty$ would help to achieve this effectively.
     - Before calculating the context vector, we can apply dropout that could prevent overfitting when training LLM's. 
+- Implementing Multi-head attention:
+    - We can stack multiple Causal attention blocks to implement multi head attention. This is computationally expensive, but that is the core of transformer like models. Also, this is essential in running multiple attention heads in parallel with different learned linear projections of input (different query, key and value matrix for each head/block).
+    - For example, if we use a two attention block multi-head attention, we would get an output context vector embedding op dim of 4.
+
+- Digress: 
+    -The classic formula: d_model = num_heads * head_dim is not always applicable, as there are other formats to split the attention heads, for instance, consider Mistral Small 24B (v3.1). If you look at its configuration file, then we can understand that the above formula does not work (32 heads x 128 head_dim = 4096, leaving a mismatch of 1024 to attain 5120). The output projection matrix, $W_o$ is used to project the output back to 5120 by $W_o \in \mathbb{R}^{4096 \times 5120}$. This is done because certain multiplication hardware performs best when the dimensions are powers of 2 (in this case, if 5120/32 = 160, not a power of 2, we can tweak the number of attention heads, but due to some architectural tradeoffs.)
+    - Another reason is because of the Grouped Query Attention, where several blocks of Query matrices pair up for fewer Key / Value matrices.
