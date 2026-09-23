@@ -146,6 +146,12 @@ $$
     - For example, if we use a two attention block multi-head attention, we would get an output context vector embedding op dim of 4.
     - The tensors are transposed to bring the num_heads before the num_tokens because of multiplying ($Q.K^T$) the tokens and capturing the relationship between the tokens in each heads, and hence responsible for correctly aligning the query, key and value matrices batched across different heads independently and multiply effectively.
 
+### Chapter 4 in Build a Large Language Model (by Sebastian Raschka):
+- This chapter involves coding a GPT-like model from scratch, implementing normalizing layer activations, shortcut (or) residual (or) skip connections, transformer blocks of various sizes and, calculating memory and parameters for models  
+
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+
 - Digress: 
     -The classic formula: d_model = num_heads * head_dim is not always applicable, as there are other formats to split the attention heads, for instance, consider Mistral Small 24B (v3.1). If you look at its configuration file, then we can understand that the above formula does not work (32 heads x 128 head_dim = 4096, leaving a mismatch of 1024 to attain 5120). The output projection matrix, $W_o$ is used to project the output back to 5120 by $W_o \in \mathbb{R}^{4096 \times 5120}$. This is done because certain multiplication hardware performs best when the dimensions are powers of 2 (in this case, if 5120/32 = 160, not a power of 2, we can tweak the number of attention heads, but due to some architectural tradeoffs.)
     - Another reason is because of the Grouped Query Attention, where several blocks of Query matrices pair up for fewer Key / Value matrices.
