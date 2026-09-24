@@ -147,7 +147,8 @@ $$
     - The tensors are transposed to bring the num_heads before the num_tokens because of multiplying ($Q.K^T$) the tokens and capturing the relationship between the tokens in each heads, and hence responsible for correctly aligning the query, key and value matrices batched across different heads independently and multiply effectively.
 
 ### Chapter 4 in Build a Large Language Model (by Sebastian Raschka):
-- This chapter involves coding a GPT-like model from scratch, implementing normalizing layer activations, shortcut (or) residual (or) skip connections, transformer blocks of various sizes and, calculating memory and parameters for models  
+- This chapter involves coding a GPT-like model from scratch, implementing normalizing layer activations, shortcut (or) residual (or) skip connections, transformer blocks of various sizes and, calculating memory and parameters for models.
+- We first use a placeholder model, and then implement Layer Normalization, and the activation function (ReLU or GELU), and add the feed forward layers, implement skip connections, and then finally add a transformer block. After this, we declare the final architecture of the model using multiple transformer blocks.
 
 ------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------
