@@ -148,7 +148,7 @@ $$
 
 ### Chapter 4 in Build a Large Language Model (by Sebastian Raschka):
 - This chapter involves coding a GPT-like model from scratch, implementing normalizing layer activations, shortcut (or) residual (or) skip connections, transformer blocks of various sizes and, calculating memory and parameters for models.
-- We first use a placeholder model, and then implement Layer Normalization, and the activation function (ReLU or GELU), and add the feed forward layers, implement skip connections, and then finally add a transformer block. After this, we declare the final architecture of the model using multiple transformer blocks.
+- We first use a placeholder model, and then implement Layer Normalization, and the activation function (ReLU or GELU), and add the feed forward layers, implement skip connections, and then finally add a transformer block. After this, we declare the final architecture of the model using multiple transformer blocks. 
 
 ------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------
