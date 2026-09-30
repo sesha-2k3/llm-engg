@@ -155,4 +155,4 @@ $$
 
 - Digress: 
     -The classic formula: d_model = num_heads * head_dim is not always applicable, as there are other formats to split the attention heads, for instance, consider Mistral Small 24B (v3.1). If you look at its configuration file, then we can understand that the above formula does not work (32 heads x 128 head_dim = 4096, leaving a mismatch of 1024 to attain 5120). The output projection matrix, $W_o$ is used to project the output back to 5120 by $W_o \in \mathbb{R}^{4096 \times 5120}$. This is done because certain multiplication hardware performs best when the dimensions are powers of 2 (in this case, if 5120/32 = 160, not a power of 2, we can tweak the number of attention heads, but due to some architectural tradeoffs.)
-    - Another reason is because of the Grouped Query Attention, where several blocks of Query matrices pair up for fewer Key / Value matrices.
+    - Another reason is because of the Grouped Query Attention, where several blocks of Query matrices pair up for fewer Key / Value matrices. 
